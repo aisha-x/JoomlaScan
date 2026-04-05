@@ -1,52 +1,90 @@
-# Joomla Scan
-A free and open source software to find the components installed in Joomla CMS, built out of the ashes of Joomscan.
+## Python3 Version of [Joomla Scanner](https://github.com/drego85/JoomlaScan)
 
-# Features
-* Scanning the Joomla CMS sites in search of components/extensions (database of more than 600 components);
-* Locate the browsable folders of component (Index of ...);
-* Locate the components disabled or protected
-* Locate each file useful to identify the version of a components (Readme, Manifest, License, Changelog)
-* Locate the robots.txt file or error_log file
-* Supports HTTP or HTTPS connections
-* Connection timeout
+Example: 
+```bash
+$ python3 joomlascan.py -u http://dev.inlanefreight.local 
+-------------------------------------------
+                Joomla Scan                  
+    Usage: python3 joomlascan.py -u <target> 
+     Version 0.5beta-py3 - Database Entries 1235
+           created by Andrea Draghetti       
+-------------------------------------------
+Robots file found:               > http://dev.inlanefreight.local/robots.txt
+No Error Log found
 
-# Next Features
-* Locate the version of Joomla CMS
-* Find Module
-* Customized User Agent and Random Agent
-* The user can change the connection timeout
-* A database of vulnerable components
+Start scan...with 10 concurrent threads!
+Component found: com_actionlogs  > http://dev.inlanefreight.local/index.php?option=com_actionlogs
+         On the administrator components
+Component found: com_admin       > http://dev.inlanefreight.local/index.php?option=com_admin
+         On the administrator components
+Component found: com_ajax        > http://dev.inlanefreight.local/index.php?option=com_ajax
+         But possibly it is not active or protected
+         LICENSE file found      > http://dev.inlanefreight.local/administrator/components/com_actionlogs/actionlogs.xml
+         LICENSE file found      > http://dev.inlanefreight.local/administrator/components/com_admin/admin.xml
+         LICENSE file found      > http://dev.inlanefreight.local/administrator/components/com_ajax/ajax.xml
+         Explorable Directory    > http://dev.inlanefreight.local/administrator/components/com_actionlogs/
+         Explorable Directory    > http://dev.inlanefreight.local/administrator/components/com_admin/
+Component found: com_banners     > http://dev.inlanefreight.local/index.php?option=com_banners
+         But possibly it is not active or protected
+         Explorable Directory    > http://dev.inlanefreight.local/components/com_ajax/
+         Explorable Directory    > http://dev.inlanefreight.local/administrator/components/com_ajax/
+         LICENSE file found      > http://dev.inlanefreight.local/administrator/components/com_banners/banners.xml
+         Explorable Directory    > http://dev.inlanefreight.local/components/com_banners/
+         Explorable Directory    > http://dev.inlanefreight.local/administrator/components/com_banners/
+Component found: com_config      > http://dev.inlanefreight.local/index.php?option=com_config
+Component found: com_contact     > http://dev.inlanefreight.local/index.php?option=com_contact
+Component found: com_content     > http://dev.inlanefreight.local/index.php?option=com_content
+Component found: com_contenthistory      > http://dev.inlanefreight.local/index.php?option=com_contenthistory
+         But possibly it is not active or protected
+         LICENSE file found      > http://dev.inlanefreight.local/administrator/components/com_config/config.xml
+         LICENSE file found      > http://dev.inlanefreight.local/administrator/components/com_contact/contact.xml
+         LICENSE file found      > http://dev.inlanefreight.local/administrator/components/com_content/content.xml
+         LICENSE file found      > http://dev.inlanefreight.local/administrator/components/com_contenthistory/contenthistory.xml
+         Explorable Directory    > http://dev.inlanefreight.local/components/com_contact/
+         Explorable Directory    > http://dev.inlanefreight.local/components/com_config/
+         Explorable Directory    > http://dev.inlanefreight.local/components/com_content/
+         Explorable Directory    > http://dev.inlanefreight.local/administrator/components/com_contact/
+         Explorable Directory    > http://dev.inlanefreight.local/administrator/components/com_config/
+         Explorable Directory    > http://dev.inlanefreight.local/administrator/components/com_content/
+         Explorable Directory    > http://dev.inlanefreight.local/components/com_contenthistory/
+         Explorable Directory    > http://dev.inlanefreight.local/administrator/components/com_contenthistory/
+Component found: com_fields      > http://dev.inlanefreight.local/index.php?option=com_fields
+         But possibly it is not active or protected
+         LICENSE file found      > http://dev.inlanefreight.local/administrator/components/com_fields/fields.xml
+         Explorable Directory    > http://dev.inlanefreight.local/components/com_fields/
+         Explorable Directory    > http://dev.inlanefreight.local/administrator/components/com_fields/
+Component found: com_installer   > http://dev.inlanefreight.local/index.php?option=com_installer
+         On the administrator components
+         LICENSE file found      > http://dev.inlanefreight.local/administrator/components/com_installer/installer.xml
+         Explorable Directory    > http://dev.inlanefreight.local/administrator/components/com_installer/
+Component found: com_joomlaupdate        > http://dev.inlanefreight.local/index.php?option=com_joomlaupdate
+         On the administrator components
+         LICENSE file found      > http://dev.inlanefreight.local/administrator/components/com_joomlaupdate/joomlaupdate.xml
+         Explorable Directory    > http://dev.inlanefreight.local/administrator/components/com_joomlaupdate/
+Component found: com_mailto      > http://dev.inlanefreight.local/index.php?option=com_mailto
+         But possibly it is not active or protected
+Component found: com_media       > http://dev.inlanefreight.local/index.php?option=com_media
+         But possibly it is not active or protected
+         LICENSE file found      > http://dev.inlanefreight.local/components/com_mailto/mailto.xml
+         LICENSE file found      > http://dev.inlanefreight.local/administrator/components/com_media/media.xml
+         Explorable Directory    > http://dev.inlanefreight.local/components/com_mailto/
+         Explorable Directory    > http://dev.inlanefreight.local/components/com_media/
+Component found: com_newsfeeds   > http://dev.inlanefreight.local/index.php?option=com_newsfeeds
+         Explorable Directory    > http://dev.inlanefreight.local/administrator/components/com_media/
+         LICENSE file found      > http://dev.inlanefreight.local/administrator/components/com_newsfeeds/newsfeeds.xml
+         Explorable Directory    > http://dev.inlanefreight.local/components/com_newsfeeds/
+         Explorable Directory    > http://dev.inlanefreight.local/administrator/components/com_newsfeeds/
+Component found: com_search      > http://dev.inlanefreight.local/index.php?option=com_search
+         LICENSE file found      > http://dev.inlanefreight.local/administrator/components/com_search/search.xml
+         Explorable Directory    > http://dev.inlanefreight.local/components/com_search/
+         Explorable Directory    > http://dev.inlanefreight.local/administrator/components/com_search/
+Component found: com_users       > http://dev.inlanefreight.local/index.php?option=com_users
+         LICENSE file found      > http://dev.inlanefreight.local/administrator/components/com_users/users.xml
+Component found: com_wrapper     > http://dev.inlanefreight.local/index.php?option=com_wrapper
+         Explorable Directory    > http://dev.inlanefreight.local/components/com_users/
+         Explorable Directory    > http://dev.inlanefreight.local/administrator/components/com_users/
+         LICENSE file found      > http://dev.inlanefreight.local/components/com_wrapper/wrapper.xml
+         Explorable Directory    > http://dev.inlanefreight.local/components/com_wrapper/
+End Scanner
 
-# Usage
-
-usage: python joomlascan.py [-h] [-u URL] [-t THREADS] [-v]
-
-optional arguments:
-
-    -h, --help              show this help message and exit
- 
-    -u URL, --url URL       The Joomla URL/domain to scan.
-    -t THREADS, --threads   THREADS
-                            The number of threads to use when multi-threading
-                            requests (default: 10).
-    -v, --version           show program's version number and exit
-
-# Screenshot
-
-![alt Screenshot 0.4b](http://cloud.draghetti.it/Rehost_Image/Joomla_Scan_0.4b.png)
-
-# Requirements
-* Python
-* beautifulsoup4 (To install this library from terminal type: $ sudo easy_install beautifulsoup4 or $ sudo pip install beautifulsoup4)
-
-# Changelog
-
-* 2016.12.12 0.5beta > Implementation of the Multi Thread, Updated database from 656 to 686 components, Fix Cosmetics and Minor Fix.
-* 2016.05.20 0.4beta > Find README.md, Find Manifes.xml, Find Index file of Components (Only if descriptive), User Agent and TimeOut on Python Request, Updated database from 587 to 656 components, Fix Cosmetics and Minor Fix.
-* 2016.03.18 0.3beta > Find index file on components directory
-* 2016.03.14 0.2beta > Find administrator components and file Readme, Changelog, License.
-* 2016.02.12 0.1beta > Initial release
-
-# License
-GNU, version 3
-
+```
